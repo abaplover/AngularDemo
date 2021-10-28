@@ -1,4 +1,39 @@
+<h1> *ngIf</h1>
+<input type="text" required [(ngModel)]="person.name" />
+<p *ngIf="person.name === 'Roland' && person.age === 18; else elseBlock"> Moyita</p>
+<p *ngIf="person.name === 'Rosairis'"> Mini Moyita</p>
 
-<h1> Hello World</h1>
+<ng-template #elseBlock>
+  <p> Bloque de else</p>
+</ng-template>
 
-<p> Primer Cambio</p>
+<h1>NgModel</h1>
+<p>Nombre {{ person.name }}</p>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name" />
+<p>Valid: {{ nameInput.valid }}</p>
+<p>Age {{ person.age }}</p>
+<input type="number" max="18" min="10" required #ageInput="ngModel" [(ngModel)]="person.age" />
+<p>Valid: {{ ageInput.valid }}</p>
+<hr/>
+<h1>Eventos</h1>
+<button [disabled]="btnDisabled">Enviar</button>
+<button (click)="toggleButton()">Toggle Button</button>
+<p>Edad {{ person.age }}</p>
+<button (click)="increaseAge()">Age ++</button>
+<div class="box" (scroll)="onScroll($event)">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, voluptatibus minima. Deserunt cum ex aliquid quaerat doloremque totam autem excepturi dolorem? Reprehenderit eius illo sequi consequuntur quaerat eaque ratione similique.</p>
+</div>
+<p>Nombre {{ person.name }}</p>
+<input type="text" [value]="person.name" (keyup)="changeName($event)" />
+<hr/>
+<h1>Propiedades</h1>
+<button [disabled]="btnDisabled">Enviar</button>
+<input type="text" [value]="person.name" />
+<progress max="100" [value]="person.age"></progress>
+<img width="100" [src]="person.avatar" />
+<hr/>
+<h1>Hola mundo</h1>
+<h2>{{ 'Hola Mundo'.repeat(5) }}</h2>
+<p>3 + 3 = {{ 3 + 3 }}</p>
+<h3>Hola, soy {{ name }} y tengo {{ age }}</h3>
+ 
